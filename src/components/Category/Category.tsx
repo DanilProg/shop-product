@@ -9,7 +9,7 @@ export interface FormCategory {
 }
 interface CategoryProps {
     onSubmit: (product: FormCategory) => void;
-    deleteCategory:(value:string) => Promise<void>
+    deleteCategory:(url:string,id:string) => Promise<void>
 }
 export const Category = ({onSubmit, deleteCategory}:CategoryProps) => {
   const {register, handleSubmit, reset} = useForm<FormCategory>()
@@ -30,7 +30,7 @@ export const Category = ({onSubmit, deleteCategory}:CategoryProps) => {
                   <p className={classes.text}>
                       {category.value}
                   </p>
-                  <div onClick={() => deleteCategory(category.id)}>
+                  <div onClick={() => deleteCategory('category',category.id)}>
                       <TrashSvg />
                   </div>
               </div>
