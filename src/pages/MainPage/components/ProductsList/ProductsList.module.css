@@ -1,0 +1,11 @@
+.cardContent{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+    grid-gap: 35px;
+    justify-content: space-evenly;
+}
+@media (min-width: 320px) and (max-width: 830px) {
+
+}
+@media (min-width: 320px) and (max-width: 800px) {
+}

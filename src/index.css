@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --main-color:#494949;
+
+}
+.button{
+    padding: 8px;
+    background-color: var(--main-color);
+    border: 1px solid #000000;
+    border-radius: 18px;
+    color: white;
+    cursor: pointer;
+    transition: 0.4s all;
+}
+.button-active:hover{
+    transition: 0.4s all;
+    transform: scale(1.03);
+    border: 1px solid #004dff;
+    opacity: 0.8;
+}
+.mt{
+    margin-top: 10px;
+}
+.mr{
+    margin-right: 10px;
+}
+.mb{
+    margin-bottom: 10px;
+}
+input{all: unset}
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s;
+}
+::-webkit-scrollbar{
+    width: 18px;
+    height: 18px;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 9px;
+    background-color: transparent;
+    border: 6px solid transparent;
+    box-shadow: rgba(213, 216, 223, 0.8) 0 0 18px 18px inset;
+}
+::-webkit-scrollbar-corner{
+    background: transparent;
+}
+textarea{all: unset}
+button{all: unset}
+body:target .modal{
+    overflow: hidden;
+}

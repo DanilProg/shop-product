@@ -1,0 +1,71 @@
+.filter{
+    background-color: #f3f3f3;
+    border-radius: 26px;
+}
+.filterHeader{
+    height: 50px;
+    background-color: var(--main-color);
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.text{
+    color: white;
+    font-size: 18px;
+}
+.filterClose{
+    display: none;
+}
+
+.filterInner{
+}
+.filterContent{
+    padding: 18px;
+}
+.textCheckbox{
+    margin-top: 15px;
+}
+.textCheckbox p {
+    color: #000000;
+    font-size: 18px;
+}
+.textCheckbox:hover p{
+    color: #00b7c5;
+}
+.active{
+    color: #00b7c5;
+}
+.filterMenu{
+    display: none;
+}
+
+@media (max-width: 835px) {
+    .filter{
+        background-color: #f3f3f3;
+        transition: 1s;
+        min-width: 320px;
+        height: 100vh;
+        border-radius: 26px;
+        position: fixed;
+        z-index: 10;
+        transform: translateX(-550px);
+    }
+    .filterMenu{
+        display: block;
+        position: fixed;
+        transform: translateY(30px);
+    }
+    .filterActive{
+        transition: 1s;
+        transform: translateX(0);
+    }
+    .filterClose{
+        display: block;
+        position: absolute;
+        right: 5px;
+        top: 10px;
+    }
+}

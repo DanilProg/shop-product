@@ -1,0 +1,111 @@
+.header{
+    background-color: var(--main-color);
+}
+.headerInner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerLogo{
+    cursor: pointer;
+}
+.logo{
+    height: 90px;
+    border-radius: 26px;
+}
+.menuIcon{
+    display: none;
+}
+.menu{
+
+}
+.menuClose{
+    display: none;
+}
+.menuItem{
+    display: flex;
+    justify-content: space-between;
+}
+.auth{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 55px;
+}
+.login{
+    color: white;
+}
+.box{
+    width: 151px;
+}
+.admin{
+    padding: 8px;
+    border-radius: 26px;
+    background-color: #fafafa;
+    width: 100px;
+    text-align: center;
+}
+.admin:hover{
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+@media (max-width: 835px) {
+   .menu{
+       position: absolute;
+       right: 0;
+       top: 0;
+       z-index: 2;
+       transition: 1s;
+       transform: translateY(-250px);
+   }
+    .menuIcon{
+        display: block;
+    }
+    .headerInner{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+    .logo{
+        height: 40px;
+        border-radius: 26px;
+    }
+    .menuItem{
+        display: flex;
+        flex-direction: column;
+        padding: 6px;
+        background-color: #f3f3f3;
+        width: 200px;
+        height: 140px;
+    }
+    .active{
+        transform: translateY(0);
+    }
+    .menuClose{
+        display: block;
+    }
+    .login{
+        color: var(--main-color);
+    }
+    .admin{
+        padding: 8px;
+        color: white;
+        width: 100px;
+        text-align: center;
+        border-radius: 26px;
+        background-color: var(--main-color);
+    }
+    .admin:hover{
+        background-color: #000000;
+        cursor: pointer;
+    }
+    .box{
+        display: none;
+    }
+    .auth{
+        margin: 0;
+    }
+}

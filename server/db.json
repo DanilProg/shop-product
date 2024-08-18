@@ -1,0 +1,110 @@
+{
+  "data": [
+    {
+      "name": "bv",
+      "desc": "dfghdfghdfgh",
+      "price": "fdghdf",
+      "image": "https://avatars.mds.yandex.net/i?id=7628654ff9aca79acd5dbe009fbf44c4cb25b1bf-12528575-images-thumbs&n=13",
+      "category": {
+        "id": "hSZ_oNd",
+        "value": "Мясо",
+        "label": "Мясо"
+      },
+      "id": "cPslNnN"
+    },
+    {
+      "name": "dfgh",
+      "desc": "dfgh",
+      "price": "dfgh",
+      "image": "https://avatars.mds.yandex.net/i?id=7628654ff9aca79acd5dbe009fbf44c4cb25b1bf-12528575-images-thumbs&n=13",
+      "category": {
+        "id": "3",
+        "value": "Крупы",
+        "label": "Крупы"
+      },
+      "id": "E9bnjnz"
+    },
+    {
+      "name": "asdfasdf",
+      "desc": "asdfasdf",
+      "price": "12341234",
+      "image": "asdfasdfasdfa",
+      "category": {
+        "id": "UlVp8R8",
+        "value": "fghjfghj",
+        "label": "fghjfghj"
+      },
+      "id": "igNAnuK"
+    }
+  ],
+  "category": [
+    {
+      "value": "asdfasdf",
+      "label": "asdfasdf",
+      "id": "gtoTjVj"
+    },
+    {
+      "value": "sdfghdsfgh",
+      "label": "sdfghdsfgh",
+      "id": "pyFvhZl"
+    },
+    {
+      "value": "asdgasdf",
+      "label": "asdgasdf",
+      "id": "UHEIQ-z"
+    },
+    {
+      "value": "qwerqwer",
+      "label": "qwerqwer",
+      "id": "W4yQMs-"
+    },
+    {
+      "value": "rqwerqwerr22",
+      "label": "rqwerqwerr22",
+      "id": "GwZQEMe"
+    },
+    {
+      "value": "мясокомбинироыванные",
+      "label": "мясокомбинироыванные",
+      "id": "hku8cgV"
+    },
+    {
+      "value": "asdfasdfa",
+      "label": "asdfasdfa",
+      "id": "3SYk83p"
+    },
+    {
+      "value": "asdfasdfasdf",
+      "label": "asdfasdfasdf",
+      "id": "jB4slWO"
+    },
+    {
+      "value": "asdfasdfasdfwe",
+      "label": "asdfasdfasdfwe",
+      "id": "fNl4CGY"
+    },
+    {
+      "value": "34234234234234",
+      "label": "34234234234234",
+      "id": "mQ6eunf"
+    },
+    {
+      "value": "asdfasdfasdf11111",
+      "label": "asdfasdfasdf11111",
+      "id": "qBh7qg4"
+    }
+  ],
+  "users": [
+    {
+      "email": "asfda@mail.ru",
+      "password": "$2a$10$UiEuk2zTi.v9HCiJaTNen.QjgmLJXXj/WF0fps2wp7NyBIbyDSQ0K",
+      "login": "anil",
+      "id": 1
+    }
+  ],
+  "auth": [
+    {
+      "text": "hyu"
+    }
+  ]
+}

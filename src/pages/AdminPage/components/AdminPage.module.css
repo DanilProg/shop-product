@@ -1,0 +1,26 @@
+.admin{
+    margin-top: 26px;
+}
+.header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr 1fr;
+    background-color: #494949;
+    margin: 26px 0;
+    padding: 8px;
+}
+.text{
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 835px) {
+    .header{
+        display: none;
+    }
+    .content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+        grid-gap: 35px;
+        justify-content: space-evenly;
+    }
+}

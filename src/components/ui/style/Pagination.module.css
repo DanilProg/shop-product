@@ -1,0 +1,14 @@
+.btn{
+    display: inline-block;
+    margin: 0 1px;
+    padding: 10px 15px;
+    background: #eebe57;
+    color: #020202;
+    text-decoration: none;
+}
+
+
+.btn .active {
+    background: #2e2e2e;
+    color: #eebe57;
+}

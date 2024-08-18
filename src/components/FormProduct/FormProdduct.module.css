@@ -1,0 +1,18 @@
+.btn{
+    padding: 10px;
+    margin: 15px 0;
+    background-color: #2e59f1;
+    color: #d7d7d7;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.select{
+    max-width: 212px;
+    margin-top: 15px;
+}
+.input{
+    max-width: 100%;
+}
+.form{
+
+}
