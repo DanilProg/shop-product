@@ -4,7 +4,8 @@ import { PencilSvg } from "../../../components/ui/PencilSvg.tsx";
 import { TrashSvg } from "../../../components/ui/TrashSvg.tsx";
 import {toggleScrollBar} from "../../../lib/utils.ts";
 interface ProductCartAdminProps extends Product {
-  onClick: (value: string, product: Product) => void;
+  onClick: (product: Product) => void;
+  deleteProduct:(url:string,id:string) => Promise<void>
   prod: Product;
 }
 
@@ -15,6 +16,7 @@ export const ProductCartAdmin = ({
   category,
   desc,
   onClick,
+  deleteProduct,
   prod,
 }: ProductCartAdminProps) => {
   return (
@@ -40,12 +42,12 @@ export const ProductCartAdmin = ({
 
           <div className={classes.edit}>
               <div className={'mr'} onClick={() => {
-                  onClick("edit", prod)
+                  onClick( prod)
                   toggleScrollBar(true)
               }}>
                   <PencilSvg/>
               </div>
-              <div onClick={() => onClick("delete", prod)}>
+              <div onClick={() => deleteProduct("data", prod.id)}>
                   <TrashSvg/>
               </div>
           </div>

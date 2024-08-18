@@ -25,20 +25,18 @@ type FormSchema = z.infer<typeof schema>;
 export const FormProduct = ({
   initialValues,
   onSubmit,
-  variant,
 }: {
-  initialValues?: Product;
-  onSubmit: (value: FormSchema) => void;
-  variant: string;
+  initialValues: Product;
+  onSubmit: (value: Product) => void;
 }) => {
   const options = useAppSelector((state) => state.categories.category);
   const { register, handleSubmit, control } = useForm<FormSchema>({
     resolver: zodResolver(schema),
     defaultValues: initialValues,
   });
-console.log(options)
   const submit = (values: FormSchema) => {
-    onSubmit(values);
+    console.log(values, initialValues);
+    onSubmit({...values, id:initialValues?.id});
   };
   return (
     <form onSubmit={handleSubmit(submit)} className={classes.form}>
@@ -78,7 +76,7 @@ console.log(options)
         />
         </div>
         <button type="submit" className={classes.btn}>
-          {variant === "add" ? "Добавить" : "Редактировать"}
+          {initialValues?.id ? "Редактировать" : "Добавить"}
         </button>
       </div>
     </form>

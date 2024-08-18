@@ -34,8 +34,18 @@ export const AdminPage = () => {
   const url = useAppSelector(getUrlAdmin);
   const [showModalProduct, setShowModalProduct] = useState(false);
   const [showModalCategory, setShowModalCategory] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product>();
-  const [btnActiveProduct, setBtnActiveProduct] = useState<string>("");
+  const [selectedProduct, setSelectedProduct] = useState<Product>({
+    id:"",
+    category:{
+      id: '',
+      value: '',
+      label: '',
+    },
+    price:"",
+    desc:"",
+    image:"",
+    name:""
+  });
   const dispatch = useAppDispatch();
 
 
@@ -49,65 +59,62 @@ export const AdminPage = () => {
     getProduct();
   };
   const postChangeFormProduct = async (value: Omit<Product, "id">) => {
+    console.log(value)
     await productsInstance.post(`data`, value);
     getProduct();
   };
-  const deleteFormProduct = async (value: Product) => {
-    await productsInstance.delete(`data/${value.id}`);
-    getProduct();
-  };
 
-  const deleteFormCategory = async (value:string) => {
-    await productsInstance.delete(`category/${value}`)
-    getCategories();
-  }
   const postFormCategory = async (value:FormCategory) => {
     await productsInstance.post('category', value)
     getCategories();
   }
-
-
-  const onClickBtnProduct = (value: string, product?: Product) => {
-    if (value === "add") {
-      setSelectedProduct(product);
-      setShowModalProduct(true);
-      setBtnActiveProduct(value);
+  const onDelete = async (url:string, id:string) => {
+    await productsInstance.delete(`${url}/${id}`)
+    if(url === "category"){
+      getCategories();
+    }else{
+      getProduct()
     }
-    if(product){
-     if (value === "delete") {
-        deleteFormProduct(product);
-        setBtnActiveProduct("");
-      } else {
+  }
+
+  const onClickBtnProduct = (product: Product) => {
         setSelectedProduct(product);
         setShowModalProduct(true);
-        setBtnActiveProduct(value);
-      }
-    }
   };
-  const onChangeFormProduct = (value: Omit<Product, "id">) => {
-    if (btnActiveProduct === "add") {
-      postChangeFormProduct(value);
-    } else if (btnActiveProduct === "edit" && selectedProduct?.id) {
-      putChangeFormProduct({ ...value, id: selectedProduct.id });
+
+  const onChangeFormProduct = (product:Product) => {
+    if(product.id){
+      putChangeFormProduct(product)
+    }else {
+      postChangeFormProduct(product);
     }
-    setSelectedProduct(undefined);
-    setShowModalProduct(false);
+    setShowModalProduct(false)
     toggleScrollBar(false)
   };
 
   const onChangeFormCategory = (value: FormCategory) => {
     const findCategory = categories.find((category) => category.value.toLowerCase() === value.value.toLowerCase());
     if(findCategory){
-
     }else {
       postFormCategory(value)
     }
-
   }
+
   const onCloseModal = () => {
     if (showModalProduct) {
       setShowModalProduct(false);
-      setSelectedProduct(undefined);
+      setSelectedProduct({
+        id:"",
+        category:{
+          id: '',
+          value: '',
+          label: '',
+        },
+        price:"",
+        desc:"",
+        image:"",
+        name:""
+      });
     } else {
       setShowModalCategory(false);
     }
@@ -137,7 +144,18 @@ export const AdminPage = () => {
           <button
             className={"button mr mb button-active"}
             onClick={() =>{
-              onClickBtnProduct("add")
+              onClickBtnProduct({
+                id:"",
+                category:{
+                  id: '',
+                  value: '',
+                  label: '',
+                },
+                price:"",
+                desc:"",
+                image:"",
+                name:""
+              })
               toggleScrollBar(true)
             }
             }
@@ -167,6 +185,7 @@ export const AdminPage = () => {
                 category={product.category}
                 desc={product.desc}
                 onClick={onClickBtnProduct}
+                deleteProduct={onDelete}
               />
             ))
           : Array.from({ length: 6 }).map((_, index) => (
@@ -199,7 +218,6 @@ export const AdminPage = () => {
         showModalProduct &&
           <Modal onClose={() => onCloseModal()} active={showModalProduct}>
             <FormProduct
-                variant={btnActiveProduct}
                 initialValues={selectedProduct}
                 onSubmit={(values) => onChangeFormProduct(values)}
             />
@@ -207,7 +225,7 @@ export const AdminPage = () => {
       }
       {
         showModalCategory && <Modal onClose={() => onCloseModal()} active={showModalCategory}>
-            <Category onSubmit={onChangeFormCategory} deleteCategory={deleteFormCategory}/>
+            <Category onSubmit={onChangeFormCategory} deleteCategory={onDelete}/>
           </Modal>
       }
     </Container>
